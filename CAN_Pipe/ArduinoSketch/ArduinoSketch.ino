@@ -17,11 +17,13 @@ MCP_CAN CAN(SPI_CS_PIN);                                    // Set CS pin
 void setup()
 {
     Serial.begin(115200);
-    pinMode(LED,OUTPUT);
+    //pinMode(LED,OUTPUT);
+    Serial.println("0|0 0 0 0 0 0 0 0");
 
     while (CAN_OK != CAN.begin(CAN_500KBPS))              // init can bus : baudrate = 500k
     {
         delay(100);
+        Serial.println("0|0 0 0 0 0 0 0 0");
     }
 }
 
@@ -44,19 +46,6 @@ void loop()
         {
             Serial.print(buf[i]);
             Serial.print(" ");
-            if(ledON && i==0)
-            {
-
-                digitalWrite(LED,buf[i]);
-                ledON=0;
-                delay(500);
-            }
-            else if((!(ledON)) && i==4)
-            {
-
-                digitalWrite(LED,buf[i]);
-                ledON=1;
-            }
         }
         Serial.println();
     }
