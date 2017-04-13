@@ -83,6 +83,7 @@ namespace CAN_Pipe
             btnStop.Enabled = false;
             th.Abort();
             if (port.IsOpen) port.Close();
+            port.Dispose();
         }
 
         private void start()
@@ -98,9 +99,11 @@ namespace CAN_Pipe
         }
         private void bgw_DoWork()
         {
-                port.Open();
-                var ws = new Wireshark.WiresharkSender(tbPipeName.Text, 227);  // pipe name is \\.\pipe\bacnet
-                while (true)
+            try
+            {
+               port.Open();
+            var ws = new Wireshark.WiresharkSender(tbPipeName.Text, 227);  // pipe name is \\.\pipe\bacnet
+            while (true)
                 {
                 if (ws.isConnected)
                 {
@@ -136,10 +139,16 @@ namespace CAN_Pipe
                         }
                         ws.SendToWireshark(pcap, 0, pcap.Length);
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
+                        //MessageBox.Show(ex.Message);
                     }
                 }
+            }
+            }
+            catch (Exception ex2)
+            {
+                //MessageBox.Show(ex2.Message);
             }
         }
 

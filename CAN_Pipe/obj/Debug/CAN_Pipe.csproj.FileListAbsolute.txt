@@ -7,3 +7,12 @@ c:\users\mshkatov\documents\visual studio 2017\Projects\CAN_Pipe\CAN_Pipe\obj\De
 c:\users\mshkatov\documents\visual studio 2017\Projects\CAN_Pipe\CAN_Pipe\obj\Debug\CAN_Pipe.csproj.GenerateResource.Cache
 c:\users\mshkatov\documents\visual studio 2017\Projects\CAN_Pipe\CAN_Pipe\obj\Debug\CAN_Pipe.exe
 c:\users\mshkatov\documents\visual studio 2017\Projects\CAN_Pipe\CAN_Pipe\obj\Debug\CAN_Pipe.pdb
+C:\Users\mshkatov\Source\Repos\CAN-pipe\CAN_Pipe\bin\Debug\CAN_Pipe.exe.config
+C:\Users\mshkatov\Source\Repos\CAN-pipe\CAN_Pipe\bin\Debug\CAN_Pipe.exe
+C:\Users\mshkatov\Source\Repos\CAN-pipe\CAN_Pipe\bin\Debug\CAN_Pipe.pdb
+C:\Users\mshkatov\Source\Repos\CAN-pipe\CAN_Pipe\obj\Debug\CAN_Pipe.csprojResolveAssemblyReference.cache
+C:\Users\mshkatov\Source\Repos\CAN-pipe\CAN_Pipe\obj\Debug\CAN_Pipe.Form1.resources
+C:\Users\mshkatov\Source\Repos\CAN-pipe\CAN_Pipe\obj\Debug\CAN_Pipe.Properties.Resources.resources
+C:\Users\mshkatov\Source\Repos\CAN-pipe\CAN_Pipe\obj\Debug\CAN_Pipe.csproj.GenerateResource.Cache
+C:\Users\mshkatov\Source\Repos\CAN-pipe\CAN_Pipe\obj\Debug\CAN_Pipe.exe
+C:\Users\mshkatov\Source\Repos\CAN-pipe\CAN_Pipe\obj\Debug\CAN_Pipe.pdb

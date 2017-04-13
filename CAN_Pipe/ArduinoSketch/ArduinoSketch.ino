@@ -21,11 +21,8 @@ void setup()
 
     while (CAN_OK != CAN.begin(CAN_500KBPS))              // init can bus : baudrate = 500k
     {
-        Serial.println("CAN BUS Shield init fail");
-        Serial.println(" Init CAN BUS Shield again");
         delay(100);
     }
-    Serial.println("CAN BUS Shield init ok!");
 }
 
 
@@ -40,14 +37,13 @@ void loop()
 
         unsigned char canId = CAN.getCanId();
 
-        Serial.println("-----------------------------");
-        Serial.println("get data from ID: ");
-        Serial.println(canId);
+        Serial.print(canId);
+        Serial.print("|");
 
         for(int i = 0; i<len; i++)    // print the data
         {
             Serial.print(buf[i]);
-            Serial.print("\t");
+            Serial.print(" ");
             if(ledON && i==0)
             {
 
