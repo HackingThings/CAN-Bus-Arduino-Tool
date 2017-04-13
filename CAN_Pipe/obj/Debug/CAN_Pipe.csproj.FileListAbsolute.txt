@@ -1,0 +1,9 @@
+c:\users\mshkatov\documents\visual studio 2017\Projects\CAN_Pipe\CAN_Pipe\bin\Debug\CAN_Pipe.exe.config
+c:\users\mshkatov\documents\visual studio 2017\Projects\CAN_Pipe\CAN_Pipe\bin\Debug\CAN_Pipe.exe
+c:\users\mshkatov\documents\visual studio 2017\Projects\CAN_Pipe\CAN_Pipe\bin\Debug\CAN_Pipe.pdb
+c:\users\mshkatov\documents\visual studio 2017\Projects\CAN_Pipe\CAN_Pipe\obj\Debug\CAN_Pipe.csprojResolveAssemblyReference.cache
+c:\users\mshkatov\documents\visual studio 2017\Projects\CAN_Pipe\CAN_Pipe\obj\Debug\CAN_Pipe.Form1.resources
+c:\users\mshkatov\documents\visual studio 2017\Projects\CAN_Pipe\CAN_Pipe\obj\Debug\CAN_Pipe.Properties.Resources.resources
+c:\users\mshkatov\documents\visual studio 2017\Projects\CAN_Pipe\CAN_Pipe\obj\Debug\CAN_Pipe.csproj.GenerateResource.Cache
+c:\users\mshkatov\documents\visual studio 2017\Projects\CAN_Pipe\CAN_Pipe\obj\Debug\CAN_Pipe.exe
+c:\users\mshkatov\documents\visual studio 2017\Projects\CAN_Pipe\CAN_Pipe\obj\Debug\CAN_Pipe.pdb
