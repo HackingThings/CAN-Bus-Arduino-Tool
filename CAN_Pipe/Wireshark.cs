@@ -29,6 +29,7 @@ using System.IO;
 using System.Diagnostics;
 using System.IO.Pipes;
 using System.Threading;
+using System.Windows.Forms;
 //
 // object creation could be done with 
 //      var ws=new Wireshark.WiresharkSender("bacnet",165);  // pipe name is \\.\pipe\bacnet
@@ -150,7 +151,10 @@ namespace Wireshark
                 IsConnected = true;
 
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
