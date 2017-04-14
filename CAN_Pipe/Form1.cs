@@ -65,8 +65,15 @@ namespace CAN_Pipe
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var ports = SerialPort.GetPortNames();
-            cmbSerialPorts.DataSource = ports;
+            cmbSerialPorts.Items.Clear();
+            string[] ports = SerialPort.GetPortNames();
+            for (int i = 0; i < ports.Length; i++)
+            {
+                if (!cmbSerialPorts.Items.Contains(ports[i]))
+                {
+                    cmbSerialPorts.Items.Add(ports[i]);
+                }
+            }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
