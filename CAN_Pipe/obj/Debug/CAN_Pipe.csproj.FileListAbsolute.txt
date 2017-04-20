@@ -16,3 +16,10 @@ C:\Users\mshkatov\Source\Repos\CAN-pipe\CAN_Pipe\obj\Debug\CAN_Pipe.Properties.R
 C:\Users\mshkatov\Source\Repos\CAN-pipe\CAN_Pipe\obj\Debug\CAN_Pipe.csproj.GenerateResource.Cache
 C:\Users\mshkatov\Source\Repos\CAN-pipe\CAN_Pipe\obj\Debug\CAN_Pipe.exe
 C:\Users\mshkatov\Source\Repos\CAN-pipe\CAN_Pipe\obj\Debug\CAN_Pipe.pdb
+C:\Users\mshkatov\Source\Repos\CAN-pipe\CAN_Pipe\bin\Debug\ArduinoUploader.dll
+C:\Users\mshkatov\Source\Repos\CAN-pipe\CAN_Pipe\bin\Debug\IntelHexFormatReader.dll
+C:\Users\mshkatov\Source\Repos\CAN-pipe\CAN_Pipe\bin\Debug\RJCP.SerialPortStream.dll
+C:\Users\mshkatov\Source\Repos\CAN-pipe\CAN_Pipe\bin\Debug\NLog.dll
+C:\Users\mshkatov\Source\Repos\CAN-pipe\CAN_Pipe\bin\Debug\Sniffer\sniffer.ino.standard.hex
+C:\Users\mshkatov\Source\Repos\CAN-pipe\CAN_Pipe\bin\Debug\Sender\sender.ino.standard.hex
+C:\Users\mshkatov\Source\Repos\CAN-pipe\CAN_Pipe\bin\Debug\CSV\example.csv

@@ -114,7 +114,7 @@ namespace Wireshark
 
     public class WiresharkSender
     {
-        NamedPipeServerStream WiresharkPipe;
+        public NamedPipeServerStream WiresharkPipe;
 
         bool IsConnected = false;
 
@@ -153,7 +153,7 @@ namespace Wireshark
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
             }
 
         }

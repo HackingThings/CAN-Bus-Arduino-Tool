@@ -34,6 +34,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Management;
+using Wireshark;
+using System.IO;
 
 namespace CAN_Pipe
 {
@@ -42,7 +45,8 @@ namespace CAN_Pipe
     {
         Thread th;
         SerialPort port;
-
+        WiresharkSender ws;
+        string[] data;
         public Form1()
         {
             InitializeComponent();
@@ -50,10 +54,9 @@ namespace CAN_Pipe
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var ports = SerialPort.GetPortNames();
-            cmbSerialPorts.DataSource = ports;
-            
-
+            button1_Click(sender, e);
+            ofdFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
+            ofdFileDialog.FileName = ofdFileDialog.InitialDirectory + "\\CSV\\example.csv";
         }
 
         private void clickOnJesse(object sender, EventArgs e)
@@ -65,35 +68,45 @@ namespace CAN_Pipe
 
         private void button1_Click(object sender, EventArgs e)
         {
+            cmbSerialPorts.DataSource = null;
             cmbSerialPorts.Items.Clear();
-            string[] ports = SerialPort.GetPortNames();
-            for (int i = 0; i < ports.Length; i++)
+            ManagementObjectCollection ManObjReturn;
+            ManagementObjectSearcher ManObjSearch;
+            ManObjSearch = new ManagementObjectSearcher("Select * from WIN32_SerialPort");
+            ManObjReturn = ManObjSearch.Get();
+            //this will show only arduino serial ports
+            foreach (ManagementObject ManObj in ManObjReturn)
             {
-                if (!cmbSerialPorts.Items.Contains(ports[i]))
+                if (!cmbSerialPorts.Items.Contains(ManObj["Name"].ToString()) && (ManObj["Name"].ToString().Contains("Arduino")))
                 {
-                    cmbSerialPorts.Items.Add(ports[i]);
+                    cmbSerialPorts.Items.Add(ManObj["DeviceID"].ToString());
                 }
             }
+            if (cmbSerialPorts.Items.Count != 0) cmbSerialPorts.SelectedIndex = 0;
+
+           
         }
+        
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            btnStart.Enabled = false;
-            btnStop.Enabled = true;
-            th = new Thread(start);
+            btnStartSniff.Enabled = false;
+            btnStopSniff.Enabled = true;
+            th = new Thread(startSniffing);
             th.Start();
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            btnStart.Enabled = true;
-            btnStop.Enabled = false;
+            btnStartSniff.Enabled = true;
+            btnStopSniff.Enabled = false;
+            ws.WiresharkPipe.Close();
             th.Abort();
             if (port.IsOpen) port.Close();
             port.Dispose();
         }
 
-        private void start()
+        private void startSniffing()
         {
             string text = "";
             this.Invoke((MethodInvoker)delegate ()
@@ -101,15 +114,15 @@ namespace CAN_Pipe
                 text = cmbSerialPorts.SelectedItem.ToString();
             });
             port = new SerialPort(text, 115200);
-            bgw_DoWork();
+            bgw_DoSniffing();
 
         }
-        private void bgw_DoWork()
+        private void bgw_DoSniffing()
         {
             try
             {
                port.Open();
-            var ws = new Wireshark.WiresharkSender(tbPipeName.Text, 227);  // pipe name is \\.\pipe\bacnet
+            ws = new Wireshark.WiresharkSender(tbPipeName.Text, 227);  
             while (true)
                 {
                 if (ws.isConnected)
@@ -159,6 +172,105 @@ namespace CAN_Pipe
             }
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+            ArduinoUploader.ArduinoSketchUploaderOptions options = new ArduinoUploader.ArduinoSketchUploaderOptions();
+            options.ArduinoModel = ArduinoUploader.Hardware.ArduinoModel.UnoR3;
+            options.PortName = cmbSerialPorts.SelectedItem.ToString();
+            options.FileName = Directory.GetCurrentDirectory() + "\\sniffer\\sniffer.ino.standard.hex";
+            ArduinoUploader.ArduinoSketchUploader up = new ArduinoUploader.ArduinoSketchUploader(options);
+            up.UploadSketch();
+            MessageBox.Show("Upload complete without errors");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+}
+
+        private void btnCANSenderUpload_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            
+            ArduinoUploader.ArduinoSketchUploaderOptions options = new ArduinoUploader.ArduinoSketchUploaderOptions();
+            options.ArduinoModel = ArduinoUploader.Hardware.ArduinoModel.UnoR3;
+            options.PortName = cmbSerialPorts.SelectedItem.ToString();
+            options.FileName = Directory.GetCurrentDirectory() + "\\sender\\sender.ino.standard.hex";
+            ArduinoUploader.ArduinoSketchUploader up = new ArduinoUploader.ArduinoSketchUploader(options);
+            up.UploadSketch();
+            MessageBox.Show("Upload complete without errors");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void btnBrowseForCSV_Click(object sender, EventArgs e)
+        {
+            ofdFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
+            ofdFileDialog.FileName = ofdFileDialog.InitialDirectory + "\\CSV\\example.csv";
+            ofdFileDialog.ShowDialog();
+            lblSelectedFileName.Text = lblSelectedFileName.Text+" "+ofdFileDialog.SafeFileName;
+        }
+
+        private void btnStartReplay_Click(object sender, EventArgs e)
+        {
+            btnStartReplay.Enabled = false;
+            btnStopReplay.Enabled = true;
+            data = File.ReadAllLines(ofdFileDialog.FileName);
+            th = new Thread(startReplay);
+            th.Start();
+        }
+
+        private void startReplay()
+        {
+            string text = "";
+            this.Invoke((MethodInvoker)delegate ()
+            {
+                text = cmbSerialPorts.SelectedItem.ToString();
+            });
+            port = new SerialPort(text, 115200);
+            bgw_DoReplay();
+
+        }
+
+        private void bgw_DoReplay()
+        {
+            try
+            {
+                port.Open();
+                while (true)
+                {
+                    for (int i = 1; i < data.Length; i++)
+                    {
+                        
+                        Thread.Sleep(10); //Time to send data dn let arduino parse it;
+                        port.Write(data[i]+"\n");
+                    }
+                  
+                }
+            }
+            catch (Exception ex2)
+            {
+                //MessageBox.Show(ex2.Message);
+            }
+        }
+
+        private void btnStopReplay_Click(object sender, EventArgs e)
+        {
+            btnStartReplay.Enabled = true;
+            btnStopReplay.Enabled = false;
+            th.Abort();
+            if (port.IsOpen) port.Close();
+            port.Dispose();
+        }
     }
 }
 
