@@ -6,6 +6,7 @@ A tool for creating a windows named pipe to capture CAN bus traffic using wiresh
 - An MCP2515 based arduino shield.
 - knowledge on how to prgram an arduino.
 - a windows based computer.
+- Some C# coding skills.
 
 
 # THINGS YOU NEED TO KNOW
