@@ -161,14 +161,14 @@ namespace CAN_Pipe
                     }
                     catch (Exception ex)
                     {
-                        //MessageBox.Show(ex.Message);
+                        MessageBox.Show(ex.Message);
                     }
                 }
             }
             }
             catch (Exception ex2)
             {
-                //MessageBox.Show(ex2.Message);
+                MessageBox.Show(ex2.Message);
             }
         }
 
@@ -259,7 +259,7 @@ namespace CAN_Pipe
             }
             catch (Exception ex2)
             {
-                //MessageBox.Show(ex2.Message);
+                MessageBox.Show(ex2.Message);
             }
         }
 
