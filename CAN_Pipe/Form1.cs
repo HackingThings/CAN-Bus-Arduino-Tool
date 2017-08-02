@@ -77,9 +77,19 @@ namespace CAN_Pipe
             //this will show only arduino serial ports
             foreach (ManagementObject ManObj in ManObjReturn)
             {
-                if (!cmbSerialPorts.Items.Contains(ManObj["Name"].ToString()) && (ManObj["Name"].ToString().Contains("Arduino")))
+                if (cbListOnlyArduino.Checked)
                 {
-                    cmbSerialPorts.Items.Add(ManObj["DeviceID"].ToString());
+                    if (!cmbSerialPorts.Items.Contains(ManObj["Name"].ToString()) && (ManObj["Name"].ToString().Contains("Arduino")))
+                    {
+                        cmbSerialPorts.Items.Add(ManObj["DeviceID"].ToString());
+                    }
+                }
+                else
+                {
+                    if (!cmbSerialPorts.Items.Contains(ManObj["Name"].ToString()))
+                    {
+                        cmbSerialPorts.Items.Add(ManObj["DeviceID"].ToString());
+                    }
                 }
             }
             if (cmbSerialPorts.Items.Count != 0) cmbSerialPorts.SelectedIndex = 0;
