@@ -72,7 +72,7 @@ namespace CAN_Pipe
             cmbSerialPorts.Items.Clear();
             ManagementObjectCollection ManObjReturn;
             ManagementObjectSearcher ManObjSearch;
-            ManObjSearch = new ManagementObjectSearcher("Select * from WIN32_SerialPort");
+            ManObjSearch = new ManagementObjectSearcher("SELECT * FROM Win32_PnPEntity WHERE Caption like '%(COM%'");
             ManObjReturn = ManObjSearch.Get();
             //this will show only arduino serial ports
             foreach (ManagementObject ManObj in ManObjReturn)
@@ -81,14 +81,14 @@ namespace CAN_Pipe
                 {
                     if (!cmbSerialPorts.Items.Contains(ManObj["Name"].ToString()) && (ManObj["Name"].ToString().Contains("Arduino")))
                     {
-                        cmbSerialPorts.Items.Add(ManObj["DeviceID"].ToString());
+                        cmbSerialPorts.Items.Add(ManObj["Name"].ToString());
                     }
                 }
                 else
                 {
                     if (!cmbSerialPorts.Items.Contains(ManObj["Name"].ToString()))
                     {
-                        cmbSerialPorts.Items.Add(ManObj["DeviceID"].ToString());
+                        cmbSerialPorts.Items.Add(ManObj["Name"].ToString());
                     }
                 }
             }
@@ -194,9 +194,9 @@ namespace CAN_Pipe
             up.UploadSketch();
             MessageBox.Show("Upload complete without errors");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Error: "+ex.Message);
                 throw;
             }
 }
@@ -215,9 +215,9 @@ namespace CAN_Pipe
             up.UploadSketch();
             MessageBox.Show("Upload complete without errors");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Error: " + ex.Message);
                 throw;
             }
         }

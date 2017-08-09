@@ -46,9 +46,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnCANSnifferUpload = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbListOnlyArduino = new System.Windows.Forms.CheckBox();
             this.btnCANSenderUpload = new System.Windows.Forms.Button();
             this.ofdFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.cbListOnlyArduino = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -67,18 +67,18 @@
             // cmbSerialPorts
             // 
             this.cmbSerialPorts.FormattingEnabled = true;
-            this.cmbSerialPorts.Location = new System.Drawing.Point(138, 17);
+            this.cmbSerialPorts.Location = new System.Drawing.Point(132, 17);
             this.cmbSerialPorts.Name = "cmbSerialPorts";
-            this.cmbSerialPorts.Size = new System.Drawing.Size(80, 21);
+            this.cmbSerialPorts.Size = new System.Drawing.Size(148, 21);
             this.cmbSerialPorts.TabIndex = 1;
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(224, 15);
+            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
+            this.btnRefresh.Location = new System.Drawing.Point(286, 11);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.Size = new System.Drawing.Size(26, 30);
             this.btnRefresh.TabIndex = 2;
-            this.btnRefresh.Text = "Reload";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -233,6 +233,17 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Set up everything here first";
             // 
+            // cbListOnlyArduino
+            // 
+            this.cbListOnlyArduino.AutoSize = true;
+            this.cbListOnlyArduino.Location = new System.Drawing.Point(8, 44);
+            this.cbListOnlyArduino.Name = "cbListOnlyArduino";
+            this.cbListOnlyArduino.Size = new System.Drawing.Size(156, 17);
+            this.cbListOnlyArduino.TabIndex = 13;
+            this.cbListOnlyArduino.Text = "List only Arduino COM ports";
+            this.cbListOnlyArduino.UseVisualStyleBackColor = true;
+            this.cbListOnlyArduino.CheckedChanged += new System.EventHandler(this.button1_Click);
+            // 
             // btnCANSenderUpload
             // 
             this.btnCANSenderUpload.Location = new System.Drawing.Point(8, 94);
@@ -246,17 +257,6 @@
             // ofdFileDialog
             // 
             this.ofdFileDialog.FileName = "openFileDialog1";
-            // 
-            // cbListOnlyArduino
-            // 
-            this.cbListOnlyArduino.AutoSize = true;
-            this.cbListOnlyArduino.Location = new System.Drawing.Point(8, 44);
-            this.cbListOnlyArduino.Name = "cbListOnlyArduino";
-            this.cbListOnlyArduino.Size = new System.Drawing.Size(156, 17);
-            this.cbListOnlyArduino.TabIndex = 13;
-            this.cbListOnlyArduino.Text = "List only Arduino COM ports";
-            this.cbListOnlyArduino.UseVisualStyleBackColor = true;
-            this.cbListOnlyArduino.CheckedChanged += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
