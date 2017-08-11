@@ -186,17 +186,18 @@ namespace CAN_Pipe
         {
             try
             {
-            ArduinoUploader.ArduinoSketchUploaderOptions options = new ArduinoUploader.ArduinoSketchUploaderOptions();
-            options.ArduinoModel = ArduinoUploader.Hardware.ArduinoModel.UnoR3;
-            options.PortName = cmbSerialPorts.SelectedItem.ToString();
-            options.FileName = Directory.GetCurrentDirectory() + "\\sniffer\\sniffer.ino.standard.hex";
-            ArduinoUploader.ArduinoSketchUploader up = new ArduinoUploader.ArduinoSketchUploader(options);
-            up.UploadSketch();
-            MessageBox.Show("Upload complete without errors");
+                ArduinoUploader.ArduinoSketchUploaderOptions options = new ArduinoUploader.ArduinoSketchUploaderOptions();
+                options.ArduinoModel = ArduinoUploader.Hardware.ArduinoModel.UnoR3;
+                options.PortName = cmbSerialPorts.SelectedItem.ToString();
+                options.PortName = options.PortName.Substring(options.PortName.IndexOf("COM"), options.PortName.Length-options.PortName.LastIndexOf(")")+4);
+                options.FileName = Directory.GetCurrentDirectory() + "\\sniffer\\sniffer.ino.standard.hex";
+                ArduinoUploader.ArduinoSketchUploader up = new ArduinoUploader.ArduinoSketchUploader(options);
+                up.UploadSketch();
+                MessageBox.Show("Upload complete without errors");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: "+ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
                 throw;
             }
 }
@@ -205,15 +206,14 @@ namespace CAN_Pipe
         {
             try
             {
-
-            
-            ArduinoUploader.ArduinoSketchUploaderOptions options = new ArduinoUploader.ArduinoSketchUploaderOptions();
-            options.ArduinoModel = ArduinoUploader.Hardware.ArduinoModel.UnoR3;
-            options.PortName = cmbSerialPorts.SelectedItem.ToString();
-            options.FileName = Directory.GetCurrentDirectory() + "\\sender\\sender.ino.standard.hex";
-            ArduinoUploader.ArduinoSketchUploader up = new ArduinoUploader.ArduinoSketchUploader(options);
-            up.UploadSketch();
-            MessageBox.Show("Upload complete without errors");
+                ArduinoUploader.ArduinoSketchUploaderOptions options = new ArduinoUploader.ArduinoSketchUploaderOptions();
+                options.ArduinoModel = ArduinoUploader.Hardware.ArduinoModel.UnoR3;
+                options.PortName = cmbSerialPorts.SelectedItem.ToString();
+                options.PortName = options.PortName.Substring(options.PortName.IndexOf("COM"), options.PortName.Length - options.PortName.LastIndexOf(")") + 4);
+                options.FileName = Directory.GetCurrentDirectory() + "\\sender\\sender.ino.standard.hex";
+                ArduinoUploader.ArduinoSketchUploader up = new ArduinoUploader.ArduinoSketchUploader(options);
+                up.UploadSketch();
+                MessageBox.Show("Upload complete without errors");
             }
             catch (Exception ex)
             {
