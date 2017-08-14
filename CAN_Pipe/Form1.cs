@@ -54,7 +54,7 @@ namespace CAN_Pipe
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            button1_Click(sender, e);
+            btnRefresh_Click(sender, e);
             ofdFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
             ofdFileDialog.FileName = ofdFileDialog.InitialDirectory + "\\CSV\\example.csv";
         }
@@ -66,7 +66,7 @@ namespace CAN_Pipe
 
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnRefresh_Click(object sender, EventArgs e)
         {
             cmbSerialPorts.DataSource = null;
             cmbSerialPorts.Items.Clear();
@@ -182,7 +182,7 @@ namespace CAN_Pipe
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btnCANSnifferUpload_Click_Click(object sender, EventArgs e)
         {
             try
             {

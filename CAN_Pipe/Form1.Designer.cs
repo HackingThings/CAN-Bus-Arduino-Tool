@@ -37,22 +37,22 @@
             this.btnStartSniff = new System.Windows.Forms.Button();
             this.btnStopSniff = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBoxSniffing = new System.Windows.Forms.GroupBox();
+            this.groupBoxReplay = new System.Windows.Forms.GroupBox();
             this.btnStopReplay = new System.Windows.Forms.Button();
             this.btnStartReplay = new System.Windows.Forms.Button();
             this.lblSelectedFileName = new System.Windows.Forms.Label();
             this.btnBrowseForCSV = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCANSnifferUpload = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBoxMain = new System.Windows.Forms.GroupBox();
             this.cbListOnlyArduino = new System.Windows.Forms.CheckBox();
             this.btnCANSenderUpload = new System.Windows.Forms.Button();
             this.ofdFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.groupBoxSniffing.SuspendLayout();
+            this.groupBoxReplay.SuspendLayout();
+            this.groupBoxMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblSelectCOMPort
@@ -80,7 +80,7 @@
             this.btnRefresh.Size = new System.Drawing.Size(26, 30);
             this.btnRefresh.TabIndex = 2;
             this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.button1_Click);
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // lblNameOfPipe
             // 
@@ -131,33 +131,33 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.clickOnJesse);
             // 
-            // groupBox1
+            // groupBoxSniffing
             // 
-            this.groupBox1.Controls.Add(this.tbPipeName);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.btnStopSniff);
-            this.groupBox1.Controls.Add(this.btnStartSniff);
-            this.groupBox1.Controls.Add(this.lblNameOfPipe);
-            this.groupBox1.Location = new System.Drawing.Point(12, 148);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(318, 82);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Sniffing";
+            this.groupBoxSniffing.Controls.Add(this.tbPipeName);
+            this.groupBoxSniffing.Controls.Add(this.pictureBox1);
+            this.groupBoxSniffing.Controls.Add(this.btnStopSniff);
+            this.groupBoxSniffing.Controls.Add(this.btnStartSniff);
+            this.groupBoxSniffing.Controls.Add(this.lblNameOfPipe);
+            this.groupBoxSniffing.Location = new System.Drawing.Point(12, 148);
+            this.groupBoxSniffing.Name = "groupBoxSniffing";
+            this.groupBoxSniffing.Size = new System.Drawing.Size(318, 82);
+            this.groupBoxSniffing.TabIndex = 8;
+            this.groupBoxSniffing.TabStop = false;
+            this.groupBoxSniffing.Text = "Sniffing";
             // 
-            // groupBox2
+            // groupBoxReplay
             // 
-            this.groupBox2.Controls.Add(this.btnStopReplay);
-            this.groupBox2.Controls.Add(this.btnStartReplay);
-            this.groupBox2.Controls.Add(this.lblSelectedFileName);
-            this.groupBox2.Controls.Add(this.btnBrowseForCSV);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 236);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(318, 94);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Replay";
+            this.groupBoxReplay.Controls.Add(this.btnStopReplay);
+            this.groupBoxReplay.Controls.Add(this.btnStartReplay);
+            this.groupBoxReplay.Controls.Add(this.lblSelectedFileName);
+            this.groupBoxReplay.Controls.Add(this.btnBrowseForCSV);
+            this.groupBoxReplay.Controls.Add(this.label1);
+            this.groupBoxReplay.Location = new System.Drawing.Point(12, 236);
+            this.groupBoxReplay.Name = "groupBoxReplay";
+            this.groupBoxReplay.Size = new System.Drawing.Size(318, 94);
+            this.groupBoxReplay.TabIndex = 9;
+            this.groupBoxReplay.TabStop = false;
+            this.groupBoxReplay.Text = "Replay";
             // 
             // btnStopReplay
             // 
@@ -216,22 +216,22 @@
             this.btnCANSnifferUpload.TabIndex = 10;
             this.btnCANSnifferUpload.Text = "Upload CAN Sniffer to Arduino";
             this.btnCANSnifferUpload.UseVisualStyleBackColor = true;
-            this.btnCANSnifferUpload.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnCANSnifferUpload.Click += new System.EventHandler(this.btnCANSnifferUpload_Click_Click);
             // 
-            // groupBox3
+            // groupBoxMain
             // 
-            this.groupBox3.Controls.Add(this.cbListOnlyArduino);
-            this.groupBox3.Controls.Add(this.btnCANSenderUpload);
-            this.groupBox3.Controls.Add(this.cmbSerialPorts);
-            this.groupBox3.Controls.Add(this.btnRefresh);
-            this.groupBox3.Controls.Add(this.btnCANSnifferUpload);
-            this.groupBox3.Controls.Add(this.lblSelectCOMPort);
-            this.groupBox3.Location = new System.Drawing.Point(12, 12);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(318, 130);
-            this.groupBox3.TabIndex = 10;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Set up everything here first";
+            this.groupBoxMain.Controls.Add(this.cbListOnlyArduino);
+            this.groupBoxMain.Controls.Add(this.btnCANSenderUpload);
+            this.groupBoxMain.Controls.Add(this.cmbSerialPorts);
+            this.groupBoxMain.Controls.Add(this.btnRefresh);
+            this.groupBoxMain.Controls.Add(this.btnCANSnifferUpload);
+            this.groupBoxMain.Controls.Add(this.lblSelectCOMPort);
+            this.groupBoxMain.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxMain.Name = "groupBoxMain";
+            this.groupBoxMain.Size = new System.Drawing.Size(318, 130);
+            this.groupBoxMain.TabIndex = 10;
+            this.groupBoxMain.TabStop = false;
+            this.groupBoxMain.Text = "Set up everything here first";
             // 
             // cbListOnlyArduino
             // 
@@ -242,7 +242,7 @@
             this.cbListOnlyArduino.TabIndex = 13;
             this.cbListOnlyArduino.Text = "List only Arduino COM ports";
             this.cbListOnlyArduino.UseVisualStyleBackColor = true;
-            this.cbListOnlyArduino.CheckedChanged += new System.EventHandler(this.button1_Click);
+            this.cbListOnlyArduino.CheckedChanged += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnCANSenderUpload
             // 
@@ -263,9 +263,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(342, 343);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxReplay);
+            this.Controls.Add(this.groupBoxMain);
+            this.Controls.Add(this.groupBoxSniffing);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -273,12 +273,12 @@
             this.Text = "Arduino CAN bus tool";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupBoxSniffing.ResumeLayout(false);
+            this.groupBoxSniffing.PerformLayout();
+            this.groupBoxReplay.ResumeLayout(false);
+            this.groupBoxReplay.PerformLayout();
+            this.groupBoxMain.ResumeLayout(false);
+            this.groupBoxMain.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -293,10 +293,10 @@
         private System.Windows.Forms.Button btnStartSniff;
         private System.Windows.Forms.Button btnStopSniff;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBoxSniffing;
+        private System.Windows.Forms.GroupBox groupBoxReplay;
         private System.Windows.Forms.Button btnCANSnifferUpload;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBoxMain;
         private System.Windows.Forms.Button btnCANSenderUpload;
         private System.Windows.Forms.Label lblSelectedFileName;
         private System.Windows.Forms.Button btnBrowseForCSV;
