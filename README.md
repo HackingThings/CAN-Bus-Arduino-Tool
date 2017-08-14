@@ -2,14 +2,14 @@
 A tool for creating a windows named pipe to capture CAN bus traffic using wireshark.
 
 # Requirements:
-- An arduino UNO. (currently the only supported device)
-	Note: upload sketch currently does not work with arduino CLONES, please use original arduino UNO.
+- An arduino with a CAN shield/Device.
+	Note: upload sketch only works for UnoR3, it does not work with arduino CLONES, 
+	please use original arduino HW to support the cause.
 - Arduino IDE
 - An MCP2515 based arduino shield.
 - knowledge on how to prgram an arduino.
 - a windows based computer.
 - Some C# coding skills. (recommended for debugging)
-
 
 # THINGS YOU NEED TO KNOW
 1. The code was written using visual studio 2017 community edition.
