@@ -81,14 +81,20 @@ namespace CAN_Pipe
                 {
                     if (!cmbSerialPorts.Items.Contains(ManObj["Name"].ToString()) && (ManObj["Name"].ToString().Contains("Arduino")))
                     {
-                        cmbSerialPorts.Items.Add(ManObj["Name"].ToString());
+                        String temp = ManObj["Name"].ToString();
+                        temp = temp.Remove(0, temp.IndexOf("(")+1);
+                        temp = temp.Remove(temp.IndexOf(")"), temp.Length - temp.IndexOf(")"));
+                        cmbSerialPorts.Items.Add(temp);
                     }
                 }
                 else
                 {
                     if (!cmbSerialPorts.Items.Contains(ManObj["Name"].ToString()))
                     {
-                        cmbSerialPorts.Items.Add(ManObj["Name"].ToString());
+                        String temp = ManObj["Name"].ToString();
+                        temp = temp.Remove(0, temp.IndexOf("(")+1);
+                        temp = temp.Remove(temp.IndexOf(")"), temp.Length- temp.IndexOf(")") );
+                        cmbSerialPorts.Items.Add(temp);
                     }
                 }
             }
